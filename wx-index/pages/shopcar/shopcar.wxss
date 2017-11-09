@@ -1,1 +1,18 @@
 /* pages/shopcar/shopcar.wxss */
+.nothing{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: #20ee88;
+    font-size: 50rpx;
+}
+.nothing image{
+    padding-top: 200rpx;
+    padding-bottom: 80rpx;
+    width: 300rpx;
+    height: 300rpx;
+
+}

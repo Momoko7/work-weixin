@@ -1,3 +1,6 @@
 <!--pages/shopcar/shopcar.wxml-->
 <view wx:if="{{}}"></view>
-<view wx:else></view>
+<view wx:else class="nothing">
+    <image src="../../image/shopcar/nores.png"></image>
+    <text>您还没有添加任何商品哦~~</text>
+</view>
