@@ -1,0 +1,5 @@
+<!--pages/text/text.wxml-->
+<button bindtap="csLocation">dianji</button>
+
+<text>{{name}}</text>
+<text>{{address}}</text>

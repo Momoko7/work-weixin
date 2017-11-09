@@ -1,0 +1,60 @@
+<!--pages/menu/market/market.wxml-->
+<view class='container' style='height:{{height}}'>
+  <!--头部 定位+搜索 start -->
+  <view class='header'>
+    <view class='header-l'  bindtap="csLocation">
+      <view class='icon-p'><image  class='icon-p' src='../../../image/market/ic-position.png'></image></view>
+      <scroll-view class='place' scroll-x="true">{{location.name?location.name:'获取地址'}}</scroll-view>
+    </view>
+    <view class='header-r'>
+      <input class='search' bindblur='searchGoods'></input>
+    </view>
+  </view>
+  <!--头部 定位+搜索 end -->
+
+  <!--全部 综合 销量 start -->
+  <view class='orders-top'>
+    <view data-num="1" class="order-title {{_num==1?'title-on':''}}" bindtap='titleClick'>全部</view>
+    <view data-num="2" class="order-title {{_num==2?'title-on':''}}" bindtap='titleClick'>综合</view>
+    <view data-num="3" class="order-title {{_num==3?'title-on':''}}" bindtap='titleClick'>销量</view>
+    <view class='order-title'>
+      <image src='../../../image/market/ic-more.png'></image>
+    </view>
+  </view>
+  <!--全部 综合 销量 end -->
+
+  <!--内容 start -->
+  <view class='content'>
+    <scroll-view class='scroll-left' scroll-y="true" style="height:{{scrollHeight}}">
+      <block wx:for="{{classLists}}">
+        <view data-cnum="{{item.num}}" class="goods-title {{cnum==item.num?'title-select':''}}" bindtap='classClick'>
+          {{item.title}}
+        </view>
+      </block>
+    </scroll-view>
+    <scroll-view class='scroll-right' scroll-y="true">
+      <block wx:for="{{goodsList}}">
+        <navigator url='{{item.url}}'>
+          <view class='goods-box'>
+            <image src='../../../image/goods.png'></image>
+            <view class='goods-info'>
+              <text>{{item.name}}</text>
+              <view class='info-button'>
+                <view class='goods-charge'>
+                  <view class='new-charge'>￥{{item.newCharge}}</view>
+                  <view class='old-charge'>￥{{item.oldCharge}}</view>
+                </view>
+                <view class='addtocar' catchtap='addToCar'>
+                  <image src='../../../image/market/ic-car.png'></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </scroll-view>
+  </view>
+  <!--内容 end -->
+  
+
+</view>

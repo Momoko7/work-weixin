@@ -1,0 +1,3 @@
+<!--pages/shopcar/shopcar.wxml-->
+<view wx:if="{{}}"></view>
+<view wx:else></view>

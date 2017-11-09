@@ -1,0 +1,94 @@
+/* pages/user/user.wxss */
+.icon{
+    width: 50rpx;
+    height: 50rpx;
+}
+.icon-more{
+    width: 30rpx;
+    height: 30rpx;
+}
+.header{
+    border: 1px #ddd solid;
+    height: 350rpx;
+    text-align: center;
+    background-color: #aed5e3
+}
+
+.userinfo-img{
+    margin: 0 auto;
+    margin-top: 50rpx;
+    margin-bottom: 25rpx;
+    width: 180rpx;
+    height: 180rpx;
+    border-radius: 100rpx;
+    border: 1rpx solid #eee;
+    overflow: hidden;
+}
+.userinfo-img image{
+    width: 100%;
+    height: 100%
+}
+.mineorder{
+    background-color: #aed5e3;
+}
+.mineorder text{
+    display: inline-block;
+    padding-bottom: 14rpx;
+}
+
+.order-box{
+    position: relative;
+    height: 170rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 36rpx;
+    color: #707070;
+    align-items: center;
+    border-bottom: 1px solid #fef5fd;
+}
+.order-img{
+    position: relative
+}
+.order-num{
+    width: 38rpx;
+    height: 38rpx;
+    position: absolute;
+    top: 0rpx;
+    right: 0rpx;
+    border-radius: 30rpx;
+    background-color: #ff4477;
+    color: white;
+    font-size: 30rpx;
+    text-align: center;
+    line-height: 40rpx;
+
+}
+
+.order-box .order-img{
+    padding: 0 20rpx;
+}
+.order-box image{
+    height: 70rpx;
+    width: 70rpx;
+}
+
+.line-style{
+    height: 90rpx;
+    border-bottom: 1px solid #fef5fd;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20rpx;
+    line-height: 90rpx;
+    font-size: 34rpx;
+    color: #666;
+}
+.line-left{
+    width: 220rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}

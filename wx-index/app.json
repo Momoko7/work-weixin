@@ -1,0 +1,59 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/shopcar/shopcar",
+    "pages/user/user",
+    "pages/user/orders/orders",
+    "pages/logs/logs",
+    "pages/menu/exam/exam",
+    "pages/menu/market/market",
+    "pages/menu/food/food",
+    "pages/menu/master/master",
+    "pages/menu/publish/publish",
+    "pages/menu/take/take",
+    "pages/menu/entertain/entertain",
+    "pages/menu/used/used",
+    "pages/menu/addedit/addedit",
+    "pages/goods/details/details",
+    "pages/goods/shopcar/shopcar",
+    "pages/goods/list/list",
+    "pages/goods/addedit/addedit",
+    "pages/text/text"
+  ],
+  "window":{ 
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#09f",
+    "navigationBarTitleText": "微校乐达",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#09f",
+    "list": [
+      {
+        "iconPath":"image/bar-index.png",
+        "selectedIconPath":"image/bar-index-on.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "image/bar-car.png",
+        "selectedIconPath": "image/bar-car-on.png",
+        "pagePath": "pages/shopcar/shopcar",
+        "text": "购物车"
+      },
+      {
+        "iconPath": "image/bar-user.png",
+        "selectedIconPath": "image/bar-user-on.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      },
+      {
+        "iconPath": "image/bar-user.png",
+        "selectedIconPath": "image/bar-user-on.png",
+        "pagePath": "pages/text/text",
+        "text": "测试"
+      }
+    ]
+  }
+}

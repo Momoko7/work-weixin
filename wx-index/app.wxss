@@ -1,0 +1,4 @@
+/**app.wxss**/
+ .container {
+   scroll-behavior: none;
+}  
