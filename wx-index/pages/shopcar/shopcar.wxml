@@ -1,5 +1,44 @@
 <!--pages/shopcar/shopcar.wxml-->
-<view wx:if="{{}}"></view>
+<view wx:if="{{myShopCar}}" class="container" style="height:{{windowHeight}}">
+    <scroll-view class="content" scroll-y="true">
+        <block wx:for="{{myShopCar}}" wx:for-index="snum">
+            <view class="shop-name">
+                <view data-snum="{{snum}}" class="icon-ok {{item.single==1?'on':''}}" bindtap="shopClick">
+                    <image src="../../image/ic-s-ok.png"></image>
+                </view>
+                <text>{{item.shopName}}</text>
+            </view>
+            <block wx:for="{{item.goodsInfo}}" wx:for-index="gnum" >
+                <view class="goods-box">
+                    <view data-gnum="{{gnum}}" data-snum="{{snum}}" class="icon-ok {{item.single==1?'on':''}}" bindtap="goodsClick">
+                        <image src="../../image/ic-s-ok.png"></image>
+                    </view>
+                    <view class="goods-img">
+                        <image src="{{item.img}}"></image>
+                    </view>
+                    <view class="goods-info">
+                        <text class="order-info">{{item.info}}</text>
+                        <text class="order-kinds">颜色分类：{{item.kinds}}</text>
+                    </view>
+                    <view class="goods-charge">
+                        <text>￥{{item.charge}}</text>
+                        <text>×{{item.num}}</text>
+                    </view>
+                </view>
+            </block>
+        </block>
+    </scroll-view>
+    <view class="bottom">
+        <view class="heji">
+            <text>合计：</text>
+            <text>￥{{allCharge}}</text>
+        </view>
+        <navigator class="jiesuan">
+            <text>结 算</text>
+        </navigator>
+
+    </view>
+</view>
 <view wx:else class="nothing">
     <image src="../../image/shopcar/nores.png"></image>
     <text>您还没有添加任何商品哦~~</text>

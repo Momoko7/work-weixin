@@ -13,9 +13,9 @@ Page({
     },
     userOrder:{
       unpaynum:0,
-      unsendnum:99,
-      untakenum:99,
-      uncommentnum:99
+      unsendnum:9,
+      untakenum:5,
+      uncommentnum:3
     },
     showLists: [
       {
