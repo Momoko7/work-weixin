@@ -2,8 +2,10 @@
   "pages":[
     "pages/index/index",
     "pages/shopcar/shopcar",
+    "pages/shopcar/orderpay/orderpay",
     "pages/user/user",
     "pages/user/orders/orders",
+    "pages/user/userinfo/userinfo",
     "pages/logs/logs",
     "pages/menu/exam/exam",
     "pages/menu/market/market",
@@ -15,12 +17,10 @@
     "pages/menu/used/used",
     "pages/menu/addedit/addedit",
     "pages/goods/details/details",
-    "pages/goods/shopcar/shopcar",
     "pages/goods/list/list",
-    "pages/goods/addedit/addedit",
-    "pages/text/text"
+    "pages/goods/addedit/addedit"
   ],
-  "window":{ 
+  "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#09f",
     "navigationBarTitleText": "微校乐达",
@@ -31,10 +31,16 @@
     "selectedColor": "#09f",
     "list": [
       {
-        "iconPath":"image/bar-index.png",
-        "selectedIconPath":"image/bar-index-on.png",
+        "iconPath": "image/bar-index.png",
+        "selectedIconPath": "image/bar-index-on.png",
         "pagePath": "pages/index/index",
         "text": "首页"
+      },
+      {
+        "iconPath": "image/bar-market.png",
+        "selectedIconPath": "image/bar-market-on.png",
+        "pagePath": "pages/menu/market/market",
+        "text": "逛一逛"
       },
       {
         "iconPath": "image/bar-car.png",
@@ -47,12 +53,6 @@
         "selectedIconPath": "image/bar-user-on.png",
         "pagePath": "pages/user/user",
         "text": "我的"
-      },
-      {
-        "iconPath": "image/bar-user.png",
-        "selectedIconPath": "image/bar-user-on.png",
-        "pagePath": "pages/text/text",
-        "text": "测试"
       }
     ]
   }

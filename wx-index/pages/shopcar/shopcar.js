@@ -6,6 +6,7 @@ Page({
     data: {
         windowHeight:'',
         allCharge:0,
+        paySingle:1,
         myShopCar:[{
             shopName:'美的旗舰店',
             single:0,
@@ -132,6 +133,14 @@ Page({
         _this.setData({
             allCharge:allCharge
         })
+    },
+    //结算
+    payClick: function (e) {
+        console.log('先判断再结算....')
+        wx.navigateTo({
+          url: './orderpay/orderpay'
+        })
+
     },
     /**
      * 生命周期函数--监听页面加载

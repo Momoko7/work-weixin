@@ -16,14 +16,18 @@ swiper image{
   padding: 30rpx 0;
 }
 .menu-item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 120rpx;
+  font-size: 28rpx;
 }
 .menu-item-selected{
   background: #f8f8f8
 }
 .menu-item image{
-  width: 90%;
-  height: 105rpx;
+  width: 80rpx;
+  height: 80rpx;
   margin-bottom: 10rpx;
 }
 
@@ -33,10 +37,14 @@ swiper image{
   background-color: #f8f8f8;
 }
 .show-title{
+  font-size: 32rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1rpx solid #eee;
+}
+.show-title image{
+  padding-right: 10rpx;
 }
 .title-item{
   border-bottom: 2rpx solid #fd790e;

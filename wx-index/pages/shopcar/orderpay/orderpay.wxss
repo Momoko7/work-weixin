@@ -1,0 +1,135 @@
+.container{
+    background-color: #f8f8fa;
+
+}
+.content{
+    height: 92%;
+}
+.bottom{
+    height: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: #22aaff;
+}
+.un{
+    background-color: #aaa;
+}
+.view-1{
+    height: 20%;
+    width: 100%;
+    background-color: #22aaff;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 40rpx 40rpx;
+}
+.view-1 image{
+    margin-right: 30rpx;
+    width: 150rpx;
+    height: 150rpx;
+}
+.view-1 view{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.view-1 .t1{
+    font-size: 44rpx;
+}
+.view-1 .t2{
+    font-size: 37rpx;
+}
+
+.view-2{
+    background-color: white;
+    padding: 20rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 25rpx;
+}
+.ic-position{
+    width: 85rpx;
+    height: 80rpx;
+    margin-right: 20rpx;
+}
+.ic-position image{
+    width: 100%;
+    height: 100%;
+}
+.user-info{
+    font-size: 28rpx;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.user-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/*订单商品列表*/
+.goods-title{
+    padding: 10rpx 20rpx;
+    background-color: white;
+}
+.goods-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20rpx;
+    border-bottom: solid 1rpx #ffffff;
+}
+.goods-img{
+    width: 220rpx;
+    height: 180rpx;
+}
+.goods-img image{
+    width: 100%;
+    height: 100%;
+}
+.goods-info{
+    margin-left: 15rpx;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 140rpx;
+}
+.goods-info .order-info{
+    font-size: 30rpx;
+}
+.goods-info .order-kinds{
+    font-size: 25rpx;
+    color: #888888;
+}
+.goods-charge{
+    padding-top: 15rpx;
+    padding-right: 50rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 26rpx;
+}
+.line{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20rpx 40rpx;
+}
+.p-1{
+    font-size: 10rpx 25rpx;
+    color: #666666;
+    padding-left: 20rpx;
+}
+.p-2{
+    color: #fd790e;
+}
+

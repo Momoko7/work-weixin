@@ -1,0 +1,67 @@
+<!--pages/menu/addedit/addedit.wxml-->
+<view class="container"  style="height:{{windowHeight}}">
+    <scroll-view class="content" scroll-y="true">
+        <view class="view-1">
+            <image src="../../../image/shopcar/waitepay.png"></image>
+            <view>
+                <text class="t1">等待买家付款</text>
+                <text class="t2">{{dHour}}小时{{dMinute}}自动关闭</text>
+            </view>
+        </view>
+
+        <view class="view-2">
+            <view class="ic-position">
+                <image src="../../../image/shopcar/ic-dw.png"></image>
+            </view>
+            <view class="user-info">
+                <view class="user-name">
+                    <text>收货人：{{userInfo.name}}</text>
+                    <text>{{userInfo.phone}}</text>
+                </view>
+                <text>收货地址：{{address}}</text>
+            </view>
+        </view>
+
+        <!--遍历商品-->
+        <block wx:for="{{orderInfo.goodsInfo}}">
+            <navigator url="item.goodsUrl" >
+                <view class="view-3">
+                    <view class="goods-title">{{item.title}}</view>
+                    <view class="goods-box">
+                        <view class="goods-img">
+                            <image src="{{item.img}}"></image>
+                        </view>
+                        <view class="goods-info">
+                            <text class="order-info">{{item.info}}</text>
+                            <text class="order-kinds">颜色分类：{{item.kinds}}</text>
+                        </view>
+                        <view class="goods-charge">
+                            <text>￥{{item.charge}}</text>
+                            <text>×{{item.num}}</text>
+                        </view>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+        <view class="line">
+            <text>支付金额</text>
+            <text>{{orderInfo.allCharge}}</text>
+        </view>
+        <text class="p-1">选择支付方式</text>
+        <view class="line">
+            <text>支付金额</text>
+            <text class="p-2">￥{{orderInfo.allCharge}}</text>
+        </view>
+        <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+        </radio-group>
+    </scroll-view>
+
+    <view class="bottom {{single?'':'un'}}">
+        <text>立 即 支 付</text>
+    </view>
+
+
+</view>

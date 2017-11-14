@@ -44,12 +44,12 @@ Page({
     },
     //切换分类
     titleClick: function (e) {
-        console.log(e)
         var num = e.currentTarget.dataset.num;
         this.setData({
             cnum:num
         })
     },
+    //*待付款*/
     //订单选择
     orderChoose: function (e) {
         var index = e.currentTarget.dataset.index;
@@ -64,11 +64,29 @@ Page({
     payOrder: function(){
         console.log('订单支付')
     },
+    /*待发货*/
+    remindSend: function(){
+        console.log('提醒发货')
+    },
+    /*待收货*/
+    confirmReceipt: function () {
+        console.log('确认收货')
+    },
+    viewLogistics:function () {
+        console.log('查看物流')
+    },
+    /*待评论*/
+    goodsEvaluate:function () {
+        console.log('商品评价')
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        console.log(options.cnum)
+        this.setData({
+            cnum:options.cnum
+        })
     },
 
     /**

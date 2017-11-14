@@ -1,4 +1,4 @@
-<!--pages/user/orders/orders.wxml-->
+<!--pages/user/orders/userinfo.wxml-->
 <view class="header">
     <view data-num="1" class="header-item {{cnum==1?'on':''}}" bindtap="titleClick" ><text>待付款</text></view>
     <view data-num="2" class="header-item {{cnum==2?'on':''}}" bindtap="titleClick"><text>待发货</text></view>
@@ -34,7 +34,7 @@
                 </view>
             </navigator>
             <view class="item-heji">
-                <text>共1件商品 合计：￥{{item.charge*item.num+item.postage}} (含运费￥{{item.postage}}) </text>
+                <text>共1件商品 合计：￥<text class="charge">{{item.charge*item.num+item.postage}}</text> (含运费￥{{item.postage}}) </text>
             </view>
             <view class="item-bottom">
                 <view>
@@ -44,5 +44,120 @@
             </view>
         </view>
     </block>
+</view>
 
+<view wx:if="{{cnum==2}}">
+    <block wx:for="{{unpayOrder}}" wx:for-index="index">
+        <view class="order-item">
+            <view data-index="{{index}}" bindtap="orderChoose" class="item-title">
+                <view class="item-title-left" >
+                    <text>{{item.title}}{{key}}</text>
+                </view>
+                <view class="item-title-right">
+                    <text>等待商家发货</text>
+                </view>
+            </view>
+            <navigator url="{{item.goodsUrl}}">
+                <view class="item-body">
+                    <view class="body-img">
+                        <image src="{{item.img}}"></image>
+                    </view>
+                    <view class="body-info">
+                        <text class="order-info">{{item.info}}</text>
+                        <text class="order-kinds">颜色分类：{{item.kinds}}</text>
+                    </view>
+                    <view class="body-charge">
+                        <text>￥{{item.charge}}</text>
+                        <text>×{{item.num}}</text>
+                    </view>
+                </view>
+            </navigator>
+            <view class="item-heji">
+                <text>共1件商品 合计：￥<text class="charge">{{item.charge*item.num+item.postage}}</text> (含运费￥{{item.postage}}) </text>
+            </view>
+            <view class="item-bottom">
+                <view>
+                    <button class="btn-1" bindtap="remindSend">提醒发货</button>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+
+<view wx:if="{{cnum==3}}">
+    <block wx:for="{{unpayOrder}}" wx:for-index="index">
+        <view class="order-item">
+            <view data-index="{{index}}" bindtap="orderChoose" class="item-title">
+                <view class="item-title-left" >
+                    <text>{{item.title}}{{key}}</text>
+                </view>
+                <view class="item-title-right">
+                    <text>买家已发货</text>
+                </view>
+            </view>
+            <navigator url="{{item.goodsUrl}}">
+                <view class="item-body">
+                    <view class="body-img">
+                        <image src="{{item.img}}"></image>
+                    </view>
+                    <view class="body-info">
+                        <text class="order-info">{{item.info}}</text>
+                        <text class="order-kinds">颜色分类：{{item.kinds}}</text>
+                    </view>
+                    <view class="body-charge">
+                        <text>￥{{item.charge}}</text>
+                        <text>×{{item.num}}</text>
+                    </view>
+                </view>
+            </navigator>
+            <view class="item-heji">
+                <text>共1件商品 合计：￥<text class="charge">{{item.charge*item.num+item.postage}}</text> (含运费￥{{item.postage}}) </text>
+            </view>
+            <view class="item-bottom">
+                <view>
+                    <button class="btn-1" bindtap="viewLogistics">查看物流</button>
+                    <button class="btn-2" bindtap="confirmReceipt">确认收货</button>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+
+<view wx:if="{{cnum==4}}">
+    <block wx:for="{{unpayOrder}}" wx:for-index="index">
+        <view class="order-item">
+            <view data-index="{{index}}" bindtap="orderChoose" class="item-title">
+                <view class="item-title-left" >
+                    <text>{{item.title}}{{key}}</text>
+                </view>
+                <view class="item-title-right">
+                    <text>交易成功</text>
+                </view>
+            </view>
+            <navigator url="{{item.goodsUrl}}">
+                <view class="item-body">
+                    <view class="body-img">
+                        <image src="{{item.img}}"></image>
+                    </view>
+                    <view class="body-info">
+                        <text class="order-info">{{item.info}}</text>
+                        <text class="order-kinds">颜色分类：{{item.kinds}}</text>
+                    </view>
+                    <view class="body-charge">
+                        <text>￥{{item.charge}}</text>
+                        <text>×{{item.num}}</text>
+                    </view>
+                </view>
+            </navigator>
+            <view class="item-heji">
+                <text>共1件商品 合计：￥<text class="charge">{{item.charge*item.num+item.postage}}</text> (含运费￥{{item.postage}}) </text>
+            </view>
+            <view class="item-bottom">
+                <view>
+                    <button class="btn-1" bindtap="viewLogistics">查看物流</button>
+                    <button class="btn-2" bindtap="goodsEvaluate">评价</button>
+                </view>
+            </view>
+        </view>
+    </block>
 </view>

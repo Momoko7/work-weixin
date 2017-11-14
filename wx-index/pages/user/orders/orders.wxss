@@ -77,7 +77,7 @@
     justify-content: space-between;
 }
 .body-info .order-info{
-    font-size: 27rpx;
+    font-size: 28rpx;
 }
 .body-info .order-kinds{
     font-size: 25rpx;
@@ -85,6 +85,7 @@
 }
 .body-charge{
     padding-top: 20rpx;
+    padding-left: 25rpx;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -97,6 +98,10 @@
     font-size: 30rpx;
     border-bottom: 1rpx solid #f8f8f8;
 }
+.charge{
+    font-size: 31rpx;
+    font-weight: bold;
+}
 .item-bottom{
     font-size: 28rpx;
     display: flex;
@@ -107,12 +112,11 @@
     display: inline-block;
     margin: 10rpx 16rpx;
     font-size: 26rpx;
-    width: 200rpx;
     height: 50rpx;
     line-height: 50rpx;
     border-radius: 50rpx;
     background-color: white;
-    border: solid 1rpx #EEEEEE;
+    border: solid 1rpx #ddd;
     color: #888888;
 }
 .item-bottom .btn-2{

@@ -6,7 +6,7 @@
         </view>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
-    <navigator url='./orders/orders'>
+    <navigator url='./orders/orders?cnum=1'>
         <view class='line-style'>
             <view class='line-left'>
                 <image class='icon' src='../../image/ic-order.png'></image>
@@ -19,33 +19,41 @@
     </navigator>
 
     <view class='order-box'>
-        <navigator>
-            <view class='order-img'>
-                <image src='../../image/user/od-dfk.png'></image>
-                <view class='order-num' wx:if="{{userOrder.unpaynum}}">{{userOrder.unpaynum}}</view>
+        <navigator url='./orders/orders?cnum=1'>
+            <view class="dai">
+                <view class='order-img'>
+                    <image src='../../image/user/od-dfk.png'></image>
+                    <view class='order-num' wx:if="{{userOrder.unpaynum}}">{{userOrder.unpaynum}}</view>
+                </view>
+                <text>待付款</text>
             </view>
-            <text>待付款</text>
         </navigator>
-        <navigator>
-            <view class='order-img'>
-                <image src='../../image/user/od-dfh.png'></image>
-                <view class='order-num' wx:if="{{userOrder.unsendnum}}">{{userOrder.unsendnum}}</view>
+        <navigator url='./orders/orders?cnum=2'>
+            <view class="dai">
+                <view class='order-img'>
+                    <image src='../../image/user/od-dfh.png'></image>
+                    <view class='order-num' wx:if="{{userOrder.unsendnum}}">{{userOrder.unsendnum}}</view>
+                </view>
+                <text>待发货</text>
             </view>
-            <text>待发货</text>
         </navigator>
-        <navigator>
-            <view class='order-img'>
-                <image src='../../image/user/od-dsh.png'></image>
-                <view class='order-num' wx:if="{{userOrder.untakenum}}">{{userOrder.untakenum}}</view>
+        <navigator url='./orders/orders?cnum=3'>
+            <view class="dai">
+                <view class='order-img'>
+                    <image src='../../image/user/od-dsh.png'></image>
+                    <view class='order-num' wx:if="{{userOrder.untakenum}}">{{userOrder.untakenum}}</view>
+                </view>
+                <text>待收货</text>
             </view>
-            <text>待收货</text>
         </navigator>
-        <navigator>
-            <view class='order-img'>
-                <image src='../../image/user/od-dpj.png'></image>
-                <view class='order-num' wx:if="{{userOrder.uncommentnum}}">{{userOrder.uncommentnum}}</view>
+        <navigator url='./orders/orders?cnum=4'>
+            <view class="dai">
+                <view class='order-img'>
+                    <image src='../../image/user/od-dpj.png'></image>
+                    <view class='order-num' wx:if="{{userOrder.uncommentnum}}">{{userOrder.uncommentnum}}</view>
+                </view>
+                <text>待评价</text>
             </view>
-            <text>待评价</text>
         </navigator>
     </view>
 

@@ -14,13 +14,10 @@
     padding-bottom: 80rpx;
     width: 300rpx;
     height: 300rpx;
-
 }
-
 .container{
     background-color: #fafafa;
 }
-
 .icon-ok{
     display: flex;
     text-align: center;

@@ -23,37 +23,37 @@ Page({
     menuLists:[
       [
         {
-          iconPath: '../../image/ic-chaoshi.png',
+          iconPath: '../../image/ic-kaozheng.png',
           menuTitle: '校园考证',
           url: '../menu/exam/exam'
-        }, {
+        },{
           iconPath: '../../image/ic-chaoshi.png',
           menuTitle: '校园超市',
           url: '../menu/market/market'
-        }, {
-          iconPath: '../../image/ic-chaoshi.png',
+        },{
+          iconPath: '../../image/ic-meishi.png',
           menuTitle: '校园美食',
           url: '../menu/food/food'
         }, {
-          iconPath: '../../image/ic-chaoshi.png',
+          iconPath: '../../image/ic-daren.png',
           menuTitle: '校园达人',
           url: '../menu/master/master'
         }
       ],[
         {
-          iconPath: '../../image/ic-chaoshi.png',
+          iconPath: '../../image/ic-fabu.png',
           menuTitle: '校园发布',
           url: '../menu/publish/publish'
         }, {
-          iconPath: '../../image/ic-chaoshi.png',
+          iconPath: '../../image/ic-shundai.png',
           menuTitle: '校园顺带',
           url: '../menu/take/take'
         }, {
-          iconPath: '../../image/ic-chaoshi.png',
+          iconPath: '../../image/ic-yule.png',
           menuTitle: '校园娱乐',
           url: '../menu/entertain/entertain'
         }, {
-          iconPath: '../../image/ic-chaoshi.png',
+          iconPath: '../../image/ic-ershou.png',
           menuTitle: '校园二手',
           url: '../menu/used/used'
         }

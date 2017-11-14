@@ -1,0 +1,15 @@
+<!--pages/user/userinfo/userinfo.wxml-->
+<view class="container">
+    <view class="view-1">
+        <view class="header-img">
+            <image src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view>
+            <view>昵称：{{userInfo.nickName}}</view>
+        </view>
+    </view>
+    <view class="line">
+        <view>我的收货地址</view>
+        <view></view>
+    </view>
+</view>
