@@ -1,27 +1,21 @@
-const app = getApp();
-// pages/user/userinfo/userinfo.js
+// pages/user/userinfo/edit/edit.js
 Page({
+
     /**
      * 页面的初始数据
      */
     data: {
-        userInfo:{},
-        editInfo:{
-            name:'小七',
-            phone:'',
-            idcard:''
-        }
+        val:0
     },
+
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        if (app.globalData.userInfo) {
-            this.setData({
-                userInfo: app.globalData.userInfo,
-            })
-            console.log(this.data.userInfo)
-        }
+        var val = options.val;
+        this.setData({
+            val:val
+        })
     },
 
     /**
@@ -35,7 +29,16 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        //第一次 先从缓存获取数据
+        var editInfo = wx.getStorage({
+            key: 'editInfo',
+            success: res => {
+                this.setData({
+                    editInfo:res.data
+                })
+            }
+        });
+        //设置变量 存入缓存
     },
 
     /**

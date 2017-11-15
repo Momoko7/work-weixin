@@ -1,0 +1,11 @@
+/* pages/user/userinfo/edit/edit.wxss */
+.container{
+    padding: 20rpx;
+}
+.ipt-box{
+    width: 100%;
+    height: 90rpx;
+    text-align: center;
+    border: 1rpx solid #44ccff;
+    border-radius: 50rpx;
+}

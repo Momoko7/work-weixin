@@ -3,9 +3,14 @@
     <scroll-view class="content" scroll-y="true">
         <view class="view-1">
             <image src="../../../image/shopcar/waitepay.png"></image>
-            <view>
+            <view wx:if="{{!disabled}}">
                 <text class="t1">等待买家付款</text>
                 <text class="t2">{{dHour}}小时{{dMinute}}自动关闭</text>
+            </view>
+            <view wx:else>
+                <text class="t1">
+                    订单已失效
+                </text>
             </view>
         </view>
 
@@ -48,14 +53,15 @@
             <text>{{orderInfo.allCharge}}</text>
         </view>
         <text class="p-1">选择支付方式</text>
-        <view class="line">
-            <text>支付金额</text>
-            <text class="p-2">￥{{orderInfo.allCharge}}</text>
-        </view>
-        <radio-group class="radio-group" bindchange="radioChange">
-            <label class="radio" wx:for="{{items}}">
-                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
-            </label>
+        <radio-group bindchange="radioClick">
+            <view class="line">
+                <text>微信支付</text>
+                <radio value="1" disabled="{{disabled}}"></radio>
+            </view>
+            <view class="line">
+                <text>余额支付</text>
+                <radio value="2" disabled="{{disabled}}"></radio>
+            </view>
         </radio-group>
     </scroll-view>
 

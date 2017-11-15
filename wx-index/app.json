@@ -6,6 +6,7 @@
     "pages/user/user",
     "pages/user/orders/orders",
     "pages/user/userinfo/userinfo",
+    "pages/user/userinfo/edit/edit",
     "pages/logs/logs",
     "pages/menu/exam/exam",
     "pages/menu/market/market",

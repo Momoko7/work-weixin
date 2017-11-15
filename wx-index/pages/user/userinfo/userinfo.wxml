@@ -8,8 +8,42 @@
             <view>昵称：{{userInfo.nickName}}</view>
         </view>
     </view>
-    <view class="line">
-        <view>我的收货地址</view>
-        <view></view>
-    </view>
+
+    <navigator url="./edit/edit?val=1">
+        <view class="line">
+            <view>姓名</view>
+            <view class="line-r">
+                <text>{{editInfo.name?editInfo.name:'添加'}}</text>
+                <image src="../../../image/ic-more.png"></image>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="./edit/edit?val=2">
+        <view class="line">
+            <view>电话</view>
+            <view class="line-r">
+                <text>{{editInfo.phone?editInfo.phone:'添加'}}</text>
+                <image src="../../../image/ic-more.png"></image>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="./edit/edit?val=3">
+        <view class="line">
+            <view>证件号</view>
+            <view class="line-r">
+                <text>{{editInfo.idcard?editInfo.idcart:'添加'}}</text>
+                <image src="../../../image/ic-more.png"></image>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="./edit/edit?val=4">
+        <view class="line">
+            <view>我的收货地址</view>
+            <view class="line-r">
+                <image src="../../../image/ic-more.png"></image>
+            </view>
+        </view>
+    </navigator>
+
+
 </view>

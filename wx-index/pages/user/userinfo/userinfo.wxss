@@ -26,4 +26,18 @@
 .line{
     height: 100rpx;
     background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10rpx 20rpx;
+    border-bottom: 1rpx solid #f8f8f8;
+}
+.line image{
+    margin-left: 15rpx;
+    width: 30rpx;
+    height: 30rpx;
+}
+.line-r{
+    color: #888888;
 }

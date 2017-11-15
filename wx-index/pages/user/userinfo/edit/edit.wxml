@@ -1,0 +1,10 @@
+<!--pages/user/userinfo/edit/edit.wxml-->
+<view class="container">
+    <view wx:if="{{val==1}}">
+        <input class="ipt-box" type="text" placeholder="输入您的姓名" />
+        <button class="btn">保存</button>
+    </view>
+    <view wx:if="{{val==2}}">phone</view>
+    <view wx:if="{{val==3}}">idcard</view>
+    <view wx:if="{{val==4}}">address</view>
+</view>

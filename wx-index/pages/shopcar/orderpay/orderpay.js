@@ -5,11 +5,13 @@ Page({
      * 页面的初始数据
      */
     data: {
+        single:0,
         windowHeight:'',
         outTime:7200,          //过期时间（自己设定）
-        nowTime:0,               //现在的时间戳（JS获取）
+        nowTime:0,             //现在的时间戳（JS获取）
         dHour:0,
         dMinute:0,
+        disabled:false,
         /*请求的数据*/
         userInfo:{
             name:'张三',
@@ -46,24 +48,33 @@ Page({
 
 
     },
-
+    radioClick: function () {
+        this.setData({
+            single:1
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        var _this = this
         /*加载完成 计算订单关闭时间*/
         var nowTime = Date.parse(new Date());  //当前时间戳
         var dTime = this.data.outTime-(nowTime -this.data.orderInfo.orderTime)/1000; //时间差
+        if (dTime<=0){
+            dTime=0;
+            console.log('订单已失效');
+            _this.setData({
+                disabled:true
+            })
+        }
         var dHour = parseInt(dTime/3600);      //时间差-小时
         var dMinute = parseInt((dTime%3600)/60)//时间差-分钟
-        if (dTime==0){
-            dTime=0
-        }
+
         this.setData({
             dHour:dHour,
             dMinute:dMinute
         })
-        var _this = this
         wx.getSystemInfo({
             success: function(res) {
                 _this.setData({
