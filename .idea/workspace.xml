@@ -2,34 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b01cc39-5217-4542-9a77-87b4e564bd89" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/image/ic-delete.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/image/user/money.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/market/market.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/market/market.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/market/market.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/market/market.wxss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/user/account/account.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/user/account/account.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/user/account/account.wxml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wx-index/pages/user/account/account.wxss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/app.js" afterPath="$PROJECT_DIR$/wx-index/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/app.json" afterPath="$PROJECT_DIR$/wx-index/app.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/config/config.js" afterPath="$PROJECT_DIR$/wx-index/config/config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/goods/details/details.js" afterPath="$PROJECT_DIR$/wx-index/pages/goods/details/details.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/goods/details/details.wxml" afterPath="$PROJECT_DIR$/wx-index/pages/goods/details/details.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/goods/details/details.wxss" afterPath="$PROJECT_DIR$/wx-index/pages/goods/details/details.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/index/index.js" afterPath="$PROJECT_DIR$/wx-index/pages/index/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/index/index.wxml" afterPath="$PROJECT_DIR$/wx-index/pages/index/index.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/index/index.wxss" afterPath="$PROJECT_DIR$/wx-index/pages/index/index.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/menu/market/market.js" afterPath="$PROJECT_DIR$/wx-index/pages/menu/market/market.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/menu/market/market.wxml" afterPath="$PROJECT_DIR$/wx-index/pages/menu/market/market.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/menu/market/market.wxss" afterPath="$PROJECT_DIR$/wx-index/pages/menu/market/market.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/shopcar/shopcar.js" afterPath="$PROJECT_DIR$/wx-index/pages/shopcar/shopcar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/shopcar/shopcar.wxml" afterPath="$PROJECT_DIR$/wx-index/pages/shopcar/shopcar.wxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/shopcar/shopcar.wxss" afterPath="$PROJECT_DIR$/wx-index/pages/shopcar/shopcar.wxss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/pages/user/user.js" afterPath="$PROJECT_DIR$/wx-index/pages/user/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx-index/utils/util.js" afterPath="$PROJECT_DIR$/wx-index/utils/util.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -314,7 +287,7 @@
       <workItem from="1510708080795" duration="26991000" />
       <workItem from="1510794720373" duration="30716000" />
       <workItem from="1510881755665" duration="30567000" />
-      <workItem from="1510967141582" duration="14501000" />
+      <workItem from="1510967141582" duration="14591000" />
     </task>
     <task id="LOCAL-00001" summary="ws">
       <created>1510224039441</created>
@@ -344,11 +317,18 @@
       <option name="project" value="LOCAL" />
       <updated>1510723908868</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="对接接口：店铺列表 店铺商品 购物车查询">
+      <created>1510985380013</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1510985380014</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201892000" />
+    <option name="totallyTimeSpent" value="201982000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
@@ -402,7 +382,8 @@
     <MESSAGE value="新成：购物车页面&#10;已完成：首页、校园超市、商品详情、个人中心、我的订单-待付款" />
     <MESSAGE value="新成：购物车结算页面&#10;已完成：首页、校园超市、商品详情、个人中心、我的订单-待付款、购物车" />
     <MESSAGE value="添加请求方式&#10;封装于config util里面" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加请求方式&#10;封装于config util里面" />
+    <MESSAGE value="对接接口：店铺列表 店铺商品 购物车查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="对接接口：店铺列表 店铺商品 购物车查询" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -579,6 +560,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
           <caret line="84" column="14" lean-forward="true" selection-start-line="84" selection-start-column="14" selection-end-line="84" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -599,6 +581,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="3" column="33" lean-forward="false" selection-start-line="3" selection-start-column="33" selection-end-line="3" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -613,6 +596,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="12" column="41" lean-forward="true" selection-start-line="12" selection-start-column="41" selection-end-line="12" selection-end-column="41" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -641,6 +625,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="55" column="19" lean-forward="true" selection-start-line="55" selection-start-column="19" selection-end-line="55" selection-end-column="19" />
+          <folding>
+            <element signature="e#1554#1703#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -648,6 +635,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding />
         </state>
       </provider>
     </entry>
