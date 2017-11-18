@@ -4,17 +4,21 @@
 //上线路径
 // var urlBase = ""
 //测试环境
-var urlBase = "http://192.168.5.7:8096"
+var urlBase = "http://192.168.5.10:8096"
 var urlApi = `${urlBase}/app/user`
 var url = {
+    //图片服务器域名
+    imgUrl:'',
     //域
     urlBase:urlBase,
     //api
     urlApi:urlApi,
+    //发送openID给后端
+    postOpenid:`${urlApi}/postOpenid`,
     //热销商品查询
     getproductByhot:`${urlApi}/getproductByhot`,
     //获取商铺列表
-    getShopList:`${urlApi}/getShopList`,
+    getshoplist:`${urlApi}/getshoplist`,
     //通过店铺id获取商品列表
     getproductByshopid:`${urlApi}/getproductByshopid`,
     //查询商品类别列表

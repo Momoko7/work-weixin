@@ -20,7 +20,7 @@ Page({
             {
                 iconUrl: '../../image/user/ic-wdzh.png',
                 title: '我的账户',
-                url: ''
+                url: './account/account'
             },
             {
                 iconUrl: '../../image/user/ic-wdyh.png',

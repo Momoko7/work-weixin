@@ -3,7 +3,7 @@
   <!--首页轮播图 start -->
   <swiper indicator-dots="{{seiperSet.indicatorDots}}" autoplay="{{seiperSet.autoplay}}" duration="{{seiperSet.duration}}" circular="{{seiperSet.circular}}" bindchange="listenSwiper" indicator-active-color="{{seiperSet.dotsSeleteColor}}">
   <!--swiper-item只能包含一个节点再多会自动删除-->
-    <block wx:for="{{seiperSet.imgUrls}}">
+    <block wx:for="{{seiperSet.imgUrls}}" wx:key="key">
       <swiper-item>
       <image src="{{item}}"/>
       </swiper-item>
@@ -13,10 +13,11 @@
 
   <!--首页菜单列表 start -->
   <view class='box-menu'>
-    <block wx:for="{{menuLists}}">
+    <block wx:for="{{menuLists}}" wx:key="key">
       <view class='box-line'>
-        <block wx:for="{{item}}">
-          <navigator url="{{item.url}}">
+        <block wx:for="{{item}}" wx:key="key">
+          <!--这里是html页面-->
+          <navigator data-id="{{item.url}}" url="{{item.url}}">
             <view class='menu-item' hover-class='menu-item-selected'>
               <image src="{{item.iconPath}}"></image>
               <view>{{item.menuTitle}}</view>
@@ -27,36 +28,29 @@
     </block>
   </view>
   <!--首页菜单列表 end -->
-
   <!--首页商品展示 start -->
-  <block wx:for="{{goodsList}}">
-    <view class='box-show'>
-      <view class='show-title'>
-        <view class='title-item'>
-          <image class='ic-s' src="{{item.iconUrl}}"></image>
-          <text>{{item.title}}</text>
-        </view>
-        <view>
-          <navigator url="{{item.moreUrl}}">
-            <image class='ic-more' src='../../image/ic-s-more.png'></image>
-          </navigator>
-        </view>
+  <view class='box-show'>
+    <view class='show-title'>
+      <view class='title-item'>
+        <image class='ic-s' src="../../image/ic-s-hot.png"></image>
+        <text>热销商品</text>
       </view>
-      <view class='show-cont'>
-        <block wx:for="{{item.goods}}">
-          <navigator url="{{item.goodsUrl}}">
-            <view class='show-goods'>
-              <image src='../../image/goods.png'></image>
-              <text class='goods-info'>{{item.info}}</text>
-              <view class='goods-charge'>
-                <view class='new-charge'>￥{{item.newCharge}}</view>
-                <view class='old-charge'>￥{{item.oldCharge}}</view>
-              </view>
-            </view>
-          </navigator>
-        </block>
+      <view>
+        <navigator url="../menu/market/market">
+          <image class='ic-more' src='../../image/ic-s-more.png'></image>
+        </navigator>
       </view>
     </view>
-  </block>
+    <view class='show-cont'>
+        <navigator class='show-goods' wx:for="{{hotGoods}}" wx:key="key" url="{{item.goodsUrl}}">
+            <image src='../../image/goods.png'></image>
+            <text class='goods-info'>{{item.info}}</text>
+            <view class='goods-charge'>
+              <view class='new-charge'>￥{{item.newCharge}}</view>
+              <view class='old-charge'>￥{{item.oldCharge}}</view>
+            </view>
+        </navigator>
+    </view>
+  </view>
   <!--首页商品展示 end -->
 </view>

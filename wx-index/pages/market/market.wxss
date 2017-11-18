@@ -63,12 +63,19 @@
   width: 45rpx;
   height: 50rpx;
 }
+.shangpu{
+  background-color: #fefefe;
+  width:22%;
+  text-align: center;
+  border-right: solid 1rpx #fafafa;
+}
 .title-on{
   color: #2af;
 }
 
 /*内容  */
 .content{
+  position: relative;
   background-color: #fafafa;
   height: 86%;
   display: flex;
@@ -123,7 +130,10 @@
   flex-direction: column;
   justify-content: space-between;
 }
-
+.text-1{
+  font-size: 80%;
+  color: #666666;
+}
 .goods-box .new-charge{
   display: inline;
   font-size: 90%;
@@ -150,4 +160,29 @@
 .info-button image{
  width: 100%;
  height: 100%;
+}
+
+/*类别*/
+.classes{
+  text-align: center;
+  background-color: #fff;
+  width: 50%;
+  position: absolute;
+  right: 0;
+  top:0;
+  z-index: 99;
+  box-shadow: 5px 5px 5px #888888;
+  border-left: 1rpx solid #eeeeee;
+}
+.class-item{
+  border-bottom: 1rpx solid #f9f9f9;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+/*.class-item:first-child{*/
+  /*background-color: #f9f9f9;*/
+/*}*/
+.scroll-class{
+  width: 100%;
 }

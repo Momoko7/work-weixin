@@ -1,4 +1,9 @@
-const app = getApp();
+//获取应用实例
+const app = getApp()
+//引入数据请求模块
+import {url} from '../../../config/config.js'
+import {requestPost} from '../../../utils/util.js'
+import {requestGet} from '../../../utils/util.js'
 
 // pages/goods/details/details.js
 Page({
@@ -6,48 +11,24 @@ Page({
      * 页面的初始数据
      */
     data: {
-        //轮播图
-        seiperImgs: [
-            '../../../image/swiper-1.png',
-            '../../../image/swiper-1.png',
-            '../../../image/swiper-1.png',
-            '../../../image/swiper-1.png',
-        ],
+        test:123,
+        //轮播图地址
+        swiperImgs: [],
         //商品详情
-        goodsInfo:{
-            info:'德清 欧式新款双贵妃布艺沙发组合',
-            oldCharge:10,
-            newCharge:20,
-            sailedNum:10,
-            goodsDetailImg: [
-                '../../../image/goods/1.jpg',
-                '../../../image/goods/2.jpg',
-                '../../../image/goods/3.jpg',
-            ],
-            goodsParam: {
-                '品牌':'德清',
-                '型号':'110',
-                '是否可定制':'否',
-                '是否组装':'否',
-                '材质':'人造板',
-                '使用对象':'所有人群'
-            }
-        },
-        //售后信息
+        goodsInfo:{},
+        //商品参数
+        goodsParam:[],
+        //售后信息  暂替 后端还未提供
         serviceInfo:[{
-            imgUrl:'../../../image/goods/img-hh.png',
             title:'退货无忧',
             content:'退货条件：在商品签收15天内，商品包装完好、外观完好、配件齐全、合格证/保修卡/说明书无要求，可提出退货申请。'
         },{
-            imgUrl:'../../../image/goods/img-tk.png',
             title:'退货无忧',
             content:'退货条件：在商品签收15天内，商品包装完好、外观完好、配件齐全、合格证/保修卡/说明书无要求，可提出退货申请。'
         },{
-            imgUrl:'../../../image/goods/img-hh.png',
             title:'退货无忧',
             content:'退货条件：在商品签收15天内，商品包装完好、外观完好、配件齐全、合格证/保修卡/说明书无要求，可提出退货申请。'
         },{
-            imgUrl:'../../../image/goods/img-tk.png',
             title:'退货无忧',
             content:'退货条件：在商品签收15天内，商品包装完好、外观完好、配件齐全、合格证/保修卡/说明书无要求，可提出退货申请。'
         }],
@@ -55,30 +36,57 @@ Page({
         address:app.globalData.userLocation,
         cnum:1
     },
-
+    buildOrder:function () {
+        console.log(this.data.goodsInfo)
+    },
     //点击商品详情切换内容
     infoClick: function(e){
         var _this=this;
         var num = e.currentTarget.dataset.num
-        console.log(e)
         _this.setData({
             cnum:num
         })
-        console.log(this.data.cnum)
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        //获取屏幕可视高
+        var _this = this
+        wx.getSystemInfo({
+            success: function(res) {
+                _this.setData({
+                    windowHeight:res.windowHeight+'px'
+                })
+            }
+        })
+        //请求数据
+        requestGet({
+            url:url.getProductByid,
+            data:{
+                id:options.id
+            },
+            success:function (res) {
+                console.log(res.data)
+                var swiperImgs = res.data.pdtMinImg.split(',')
+                console.log(res.data.parameter)
+                var goodsParam = JSON.parse(res.data.parameter)
+                _this.setData({
+                    //图片
+                    swiperImgs:swiperImgs,
+                    goodsInfo:res.data,
+                    goodsParam:goodsParam
+                })
+            }
+        })
     },
+    /*加入购物车*/
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        console.log(this.data.goodsInfo.goodsParam)
-        console.log(this.data.goodsInfo.goodsParam.key)
+
     },
 
     /**
@@ -92,7 +100,7 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
+        console.log(this.data.goodsInfo)
     },
 
     /**

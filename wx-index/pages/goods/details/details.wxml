@@ -1,80 +1,89 @@
 <!--pages/goods/details/details.wxml-->
-<view class='container'>
-    <!--商品详情轮播图 start 11-->
-    <swiper indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#2af">
-        <block wx:for="{{seiperImgs}}">
-            <swiper-item>
-                <image src="{{item}}"/>
-            </swiper-item>
-        </block>
-    </swiper>
-    <!--商品详情轮播图 end -->
-    <!--商品简介 start -->
-    <view class='view-1'>
-        <text class='text-1'>{{goodsInfo.info}}</text>
-        <view>
-            <text class='new-charge'>￥{{goodsInfo.newCharge}}</text>
-            <text class='old-charge' wx:if="{{goodsInfo.oldCharge}}">￥{{goodsInfo.oldCharge}}</text>
-        </view>
-        <text class='text-2'>已售 {{goodsInfo.sailedNum}} 件</text>
-    </view>
-    <!--商品简介 end -->
-
-    <!--配送地址 start -->
-    <view class='view-2'>
-        <navigator url='../addedit/addedit'>
-            <text>配送地址：</text>
-            <text>{{address.name?address.name:'选择地址'}}</text>
-            <image class='icon' src='../../../image/goods/ic-more.png'></image>
-        </navigator>
-    </view>
-    <!--配送地址 end -->
-
-    <!--商品详情 start -->
-    <view class='view-3'>
-        <view class='info-box'>
-            <view data-num='1' class="{{cnum==1?'on':''}}" bindtap='infoClick'>
-                <text>商品详情</text>
+<view class='container' style="height: {{windowHeight}}">
+    <scroll-view scroll-y="true" class="scrollview">
+        <!--商品详情轮播图 start 11-->
+        <swiper indicator-dots="true" autoplay="true" circular="true" indicator-active-color="#2af">
+            <block wx:for="{{swiperImgs}}" wx:key="key">
+                <swiper-item>
+                    <image src="{{item}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <!--商品详情轮播图 end -->
+        <!--商品简介 start -->
+        <view class='view-1'>
+            <text class='text-1'>{{goodsInfo.pdtTitle}}</text>
+            <view>
+                <text class='new-charge'>￥{{goodsInfo.pdtMyPrice}}</text>
+                <text class='old-charge' wx:if="{{goodsInfo.pdtScPrice}}">￥{{goodsInfo.pdtScPrice}}</text>
             </view>
-            <view data-num='2' class="{{cnum==2?'on':''}}" bindtap='infoClick'>
-                <text>商品参数</text>
-            </view>
-            <view data-num='3' class="{{cnum==3?'on':''}}" bindtap='infoClick'>
-                <text>服务保障</text>
+            <view>
+                <text class='text-2'>已售 {{goodsInfo.pdtSellNum}} 件</text>
+                <text class="text-2"> 库存{{goodsInfo.pdtRepertory}}件</text>
             </view>
         </view>
-        <view class=''>
-            <!--商品详情 图片-->
-            <view wx:if="{{cnum==1}}">
-                <block wx:for="{{goodsInfo.goodsDetailImg}}">
-                    <view class='goods-img'>
-                        <image src="{{item}}"></image>
-                    </view>
-                </block>
+        <!--商品简介 end -->
+        <!--配送地址 start -->
+        <view class='view-2'>
+            <navigator url='../addedit/addedit'>
+                <text>配送地址：</text>
+                <text>{{address.name?address.name:'选择地址'}}</text>
+                <image class='icon' src='../../../image/goods/ic-more.png'></image>
+            </navigator>
+        </view>
+        <!--配送地址 end -->
+        <!--商品详情 start -->
+        <view class='view-3'>
+            <view class='info-box'>
+                <view data-num='1' class="{{cnum==1?'on':''}}" bindtap='infoClick'>
+                    <text>商品详情</text>
+                </view>
+                <view wx:if="{{goodsInfo.parameter}}" data-num='2' class="{{cnum==2?'on':''}}" bindtap='infoClick'>
+                    <text>商品参数</text>
+                </view>
+                <view data-num='3' class="{{cnum==3?'on':''}}" bindtap='infoClick'>
+                    <text>服务保障</text>
+                </view>
             </view>
-            <!--商品参数  -->
-            <view class='content' wx:if="{{cnum==2}}">
-                <block wx:for="{{goodsInfo.goodsParam}}" wx:for-index="key" wx:for-item="value">
-                    <view class='param'>
-                        <text class='param-key'>{{key}}</text>
-                        <text class='param-val'>{{value}}</text>
-                    </view>
-                </block>
-            </view>
-            <!--服务保障  -->
-            <view class=' ' wx:if="{{cnum==3}}">
-                <block wx:for="{{serviceInfo}}" >
-                    <view class="service">
-                        <image src="{{item.imgUrl}}"></image>
+            <view class=''>
+                <!--商品详情 图片-->
+                <view wx:if="{{cnum==1}}">
+                    <!--<block wx:for="{{goodsInfo.goodsDetailImg}}">-->
+                    <block wx:for="{{swiperImgs}}" wx:key="key">
+                        <view class='goods-img'>
+                            <image src="{{item}}"></image>
+                        </view>
+                    </block>
+                </view>
+                <!--商品参数  -->
+                <view class='content' wx:if="{{cnum==2}}">
+                    <block wx:for="{{goodsParam}}" wx:key="key">
+                        <view class='param'>
+                            <!--{{item}}&#45;&#45;{{key}}-->
+                            <text class='param-key'>{{item.a}}</text>
+                            <text class='param-val'>{{item.b}}</text>
+                        </view>
+                    </block>
+                </view>
+                <!--服务保障  -->
+                <view wx:if="{{cnum==3}}">
+                    <block wx:for="{{serviceInfo}}" >
                         <view class="service-content">
                             <text class="service-title">{{item.title}}</text>
                             <text class="service-info">{{item.content}}</text>
                         </view>
-                    </view>
-                </block>
+                    </block>
+                </view>
             </view>
         </view>
-
+        <!--商品详情 end -->
+    </scroll-view>
+    <view class="bottom">
+        <view class="btn btn-1" bindtap="addtoCar">
+            <text>加入购物车</text>
+        </view>
+        <view class="btn btn-2" bindtap="buildOrder">
+            <text>立即购买</text>
+        </view>
     </view>
-    <!--商品详情 end -->
 </view>

@@ -1,31 +1,32 @@
 <!--pages/shopcar/shopcar.wxml-->
-<view wx:if="{{myShopCar}}" class="container" style="height:{{windowHeight}}">
+<view wx:if="{{myShopCar.length}}" class="container" style="height:{{windowHeight}}">
     <scroll-view class="content" scroll-y="true">
-        <block wx:for="{{myShopCar}}" wx:for-index="snum">
+        <block wx:for="{{myShopCar}}" wx:key="key" wx:for-index="gnum" wx:if="{{item.show}}">
             <view class="shop-name">
-                <view data-snum="{{snum}}" class="icon-ok {{item.single==1?'on':''}}" bindtap="shopClick">
-                    <image src="../../image/ic-s-ok.png"></image>
-                </view>
-                <text>{{item.shopName}}</text>
-            </view>
-            <block wx:for="{{item.goodsInfo}}" wx:for-index="gnum" >
-                <view class="goods-box">
-                    <view data-gnum="{{gnum}}" data-snum="{{snum}}" class="icon-ok {{item.single==1?'on':''}}" bindtap="goodsClick">
+                <view class="name-l">
+                    <view data-gnum="{{gnum}}" class="icon-ok {{item.single==1?'on':''}}" bindtap="goodsClick">
                         <image src="../../image/ic-s-ok.png"></image>
                     </view>
-                    <view class="goods-img">
-                        <image src="{{item.img}}"></image>
-                    </view>
-                    <view class="goods-info">
-                        <text class="order-info">{{item.info}}</text>
-                        <text class="order-kinds">颜色分类：{{item.kinds}}</text>
-                    </view>
-                    <view class="goods-charge">
-                        <text>￥{{item.charge}}</text>
-                        <text>×{{item.num}}</text>
-                    </view>
+                    <text>{{item.goodsInfo.pdtTitle}}</text>
                 </view>
-            </block>
+                <view  class="icon-del"data-gnum="{{gnum}}"  data-pid="{{item.id}}" bindtap="deleteGoods">
+                    <image src="../../image/ic-delete.png"></image>
+                </view>
+            </view>
+            <view class="goods-box">
+                <view class="goods-img">
+                    <image src="../../image/goods.png"></image>
+                    <!--<image src="{{item.goodsInfo.pdtMinImg}}"></image>-->
+                </view>
+                <view class="goods-info">
+                    <text class="order-info">{{item.goodsInfo.pdtTitle}}</text>
+                    <text class="order-kinds">口味：原文</text>
+                </view>
+                <view class="goods-charge">
+                    <text>￥{{item.goodsInfo.pdtMyPrice}}</text>
+                    <text>×{{item.goodsNum}}</text>
+                </view>
+            </view>
         </block>
     </scroll-view>
     <view class="bottom">

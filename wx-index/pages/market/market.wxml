@@ -3,54 +3,64 @@
   <!--头部 定位+搜索 start -->
   <view class='header'>
     <view class='header-l'  bindtap="csLocation">
-      <view class='icon-p'><image  class='icon-p' src='../../../image/market/ic-position.png'></image></view>
+      <view class='icon-p'><image  class='icon-p' src='../../image/market/ic-position.png'></image></view>
       <scroll-view class='place' scroll-x="true">{{location.name?location.name:'获取地址'}}</scroll-view>
     </view>
     <view class='header-r'>
-      <input class='search' bindblur='searchGoods'></input>
+      <input class='search' bindblur='searchGoods'/>
     </view>
   </view>
   <!--头部 定位+搜索 end -->
 
   <!--全部 综合 销量 start -->
   <view class='orders-top'>
-    <view data-num="1" class="order-title {{_num==1?'title-on':''}}" bindtap='titleClick'>全部</view>
+    <view class="order-title shangpu">商铺</view>
     <view data-num="2" class="order-title {{_num==2?'title-on':''}}" bindtap='titleClick'>综合</view>
     <view data-num="3" class="order-title {{_num==3?'title-on':''}}" bindtap='titleClick'>销量</view>
-    <view class='order-title'>
+    <view class='order-title' bindtap="classShow">
       <image src='../../../image/market/ic-more.png'></image>
     </view>
+
   </view>
   <!--全部 综合 销量 end -->
 
   <!--内容 start -->
   <view class='content'>
+    <view class="classes"  wx:if="{{classshow}}" >
+      <scroll-view scroll-y="true" class="scroll-class" style="height: {{classHeight}}">
+        <view class="class-item" wx:for="{{type}}" wx:key="key" id="{{item.id}}" bindtap="typeClick">{{item.text}}</view>
+      </scroll-view>
+    </view>
     <scroll-view class='scroll-left' scroll-y="true" style="height:{{scrollHeight}}">
-      <block wx:for="{{shopList}}">
+      <block wx:for="{{shopList}}" wx:key="key">
         <view data-cnum="{{item.id}}" class="goods-title {{cnum==item.id?'title-select':''}}" bindtap='classClick'>
           {{item.shopTitle}}
         </view>
       </block>
     </scroll-view>
     <scroll-view class='scroll-right' scroll-y="true">
-      <block wx:for="{{goodsList}}">
+      <block wx:for="{{goodsList}}" wx:key="key">
         <!--加上商品id-->
-        <navigator url="../../goods/details/details?id={{item.id}}">
+        <navigator url="../goods/details/details?id={{item.id}}">
           <view class='goods-box'>
-              <view class="img">
-                  <image></image>
-                  <!--<image src="{{imgUrl+item.pdtMinImg}}"></image>-->
-              </view>
+            <view class="img">
+              <image></image>
+              <!--<image src="{{imgUrl+item.pdtMinImg}}"></image>-->
+            </view>
             <view class='goods-info'>
               <text>{{item.pdtTitle}}</text>
-              <view class='info-button'>
-                <view class='goods-charge'>
-                  <view class='new-charge'>￥{{item.pdtMyPrice}}</view>
-                  <view class='old-charge'>￥{{item.pdtScPrice}}</view>
+              <view>
+                <text class="text-1">已售{{item.pdtSellNum}}件</text>
+                <view class='info-button'>
+                  <view class='goods-charge'>
+                    <view class='new-charge'>￥{{item.pdtMyPrice}}</view>
+                    <view class='old-charge'>￥{{item.pdtScPrice}}</view>
+                  </view>
+                  <view class='addtocar' data-id="{{item.id}}" catchtap='addToCar'>
+                    <image src='../../image/market/ic-car.png'></image>
+                  </view>
                 </view>
-                <view class='addtocar' catchtap='addToCar'>
-                  <image src='../../../image/market/ic-car.png'></image>
-                </view>
+
               </view>
             </view>
           </view>
@@ -59,6 +69,4 @@
     </scroll-view>
   </view>
   <!--内容 end -->
-  
-
 </view>

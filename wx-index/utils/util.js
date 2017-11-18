@@ -14,14 +14,24 @@ const formatNumber = n => {
     return n[1] ? n : '0' + n
 }
 
+//获取缓存中的token值
+var token = ''
+wx.getStorage({
+  key: 'token',
+  success: res => {
+    token = res.data
+  }
+});
+
 function request(par) {
-    par.data.token = 1888888
+    par.data.token = token
     wx.request({
         url:par.url,
         data:par.data,
         method:par.method,
         success:par.success,
-        fail:par.fail
+        fail:par.fail,
+        header:par.header
     })
 }
 /*
@@ -38,7 +48,8 @@ function requestGet(param) {
         fail:param.fail,
         error:param.error,
         complete:param.complete,
-        method:'GET'
+        method:'GET',
+        header: {'content-type': 'application/json'}
     }
     request(option)
 }
@@ -53,20 +64,21 @@ function requestPost(param) {
     let option = {
         url:param.url,
         data:param.data,
+        header:param.header,
         success:param.success,
         fail:param.fail,
         error:param.error,
         complete:param.complete,
-        method:'POST'
+        method:'POST',
+        header: {"content-type": "application/x-www-form-urlencoded"},
     }
     request(option)
 }
 
-
 module.exports = {
     formatTime: formatTime,
-    get:requestGet,
-    post:requestPost
+    requestGet:requestGet,
+    requestPost:requestPost
 }
 
 

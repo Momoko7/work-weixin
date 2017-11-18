@@ -1,0 +1,14 @@
+<!--pages/user/account/account.wxml-->
+<view class="container">
+    <view class="img-box">
+        <image src="../../../image/user/money.png"></image>
+    </view>
+    <view>
+        <text class="text-1">我的账户余额</text>
+    </view>
+    <view>
+        <text class="text-2">￥123.33</text>
+    </view>
+    <button class="btn btn-1">充值</button>
+    <button class="btn btn-2">提现</button>
+</view>

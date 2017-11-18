@@ -1,8 +1,9 @@
 //index.js
 //获取应用实例
 const app = getApp()
-import {url} from '../../config/config'
-import request from '../../utils/util'
+import {url} from '../../config/config.js'
+import {requestPost} from '../../utils/util.js'
+import {requestGet} from '../../utils/util.js'
 
 Page({
     data: {
@@ -25,14 +26,16 @@ Page({
         menuLists:[
             [
                 {
-                    iconPath: '../../image/ic-kaozheng.png',
-                    menuTitle: '校园考证',
-                    url: '../menu/exam/exam'
-                },{
+                    iconPath: '../../image/ic-shundai.png',
+                    menuTitle: '校园顺带',
+                    url: '../menu/take/take'
+                }
+                ,{
                 iconPath: '../../image/ic-chaoshi.png',
                 menuTitle: '校园超市',
                 url: '../menu/market/market'
             },{
+                //这个是跳转页面的信息
                 iconPath: '../../image/ic-meishi.png',
                 menuTitle: '校园美食',
                 url: '../menu/food/food'
@@ -41,16 +44,11 @@ Page({
                 menuTitle: '校园达人',
                 url: '../menu/master/master'
             }
-            ],[
-                {
-                    iconPath: '../../image/ic-fabu.png',
-                    menuTitle: '校园发布',
-                    url: '../menu/publish/publish'
-                }, {
-                    iconPath: '../../image/ic-shundai.png',
-                    menuTitle: '校园顺带',
-                    url: '../menu/take/take'
-                }, {
+            ], [{
+                iconPath: '../../image/ic-fabu.png',
+                menuTitle: '校园发布',
+                url: '../menu/publish/publish'
+            }, {
                     iconPath: '../../image/ic-yule.png',
                     menuTitle: '校园娱乐',
                     url: '../menu/entertain/entertain'
@@ -58,64 +56,42 @@ Page({
                     iconPath: '../../image/ic-ershou.png',
                     menuTitle: '校园二手',
                     url: '../menu/used/used'
+                }, {
+                    iconPath: '../../image/ic-kaozheng.png',
+                    menuTitle: '校园考证',
+                    url: '../menu/exam/exam'
                 }
             ]
         ],
         //首页商品展示
-        goodsList:[
+        hotGoods:[
             {
-                title:'热卖品牌',
-                iconUrl:'../../image/ic-s-hot.png',
-                moreUrl:'../goods/list/list',
-                goods:[
-                    {
-                        goodsUrl:'../goods/details/details',
-                        imgUrl: '../image/goods.png',
-                        info:'富士S1600 富士S1700 点击详情',
-                        newCharge:'2000',
-                        oldCharge:'1800'
-                    },{
-                        goodsUrl: '../goods/details/details',
-                        imgUrl: '../image/goods.png',
-                        info: '富士S1600 富士S1700 点击详情',
-                        newCharge: '2000',
-                        oldCharge: '1800'
-                    }
-                ]
+                goodsUrl:'../goods/details/details',
+                imgUrl: '../image/goods.png',
+                info:'富士S1600 富士S1700 点击详情',
+                newCharge:'2000',
+                oldCharge:'1800'
             },{
-                title: '最新上架',
-                iconUrl: '../../image/ic-s-new.png',
-                moreUrl: '../goods/list/list',
-                goods: [
-                    {
-                        goodsUrl: '../goods/details/details',
-                        imgUrl: '../image/goods.png',
-                        info: '富士S1600 富士S1700 点击详情',
-                        newCharge: '2000',
-                        oldCharge: '1800'
-                    }, {
-                        goodsUrl: '../goods/details/details',
-                        imgUrl: '../image/goods.png',
-                        info: '富士S1600 富士S1700 点击详情',
-                        newCharge: '2000',
-                        oldCharge: '1800'
-                    }
-                ]
+                goodsUrl: '../goods/details/details',
+                imgUrl: '../image/goods.png',
+                info: '富士S1600 富士S1700 点击详情',
+                newCharge: '2000',
+                oldCharge: '1800'
             }
-        ]
+        ],
     },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        request.get({
-            url:url.getproductByshopid,
-            data:{
-                id:1
-            },
+        requestGet({
+            url:url.getproductByhot,
+            data:{},
             success:function (res) {
-                console.log(1231231)
                 console.log(res.data)
+            },
+            fail:function (res) {
+                console.log(res)
             }
         })
     },

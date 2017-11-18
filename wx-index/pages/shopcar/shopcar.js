@@ -1,3 +1,7 @@
+import { url } from '../../config/config.js'
+import { requestPost } from '../../utils/util.js'
+import { requestGet } from '../../utils/util.js'
+
 // pages/shopcar/shopcar.js
 Page({
     /**
@@ -6,132 +10,52 @@ Page({
     data: {
         windowHeight:'',
         allCharge:0,
-        paySingle:1,
-        myShopCar:[{
-            shopName:'美的旗舰店',
-            single:0,
-            goodsInfo:[{
-                id:1,
-                title:'美的抽油烟机',
-                single:0,
-                goodsUrl:'../goods/details/details',
-                img:'../../image/orders/order-1.png',
-                info:'美的抽油烟机 美观不生锈 吸油高效 精华厨房 完美无缺',
-                kinds:'灰色',
-                charge:1.00,
-                num:1,
-                postage:0.00
-            },{
-                id:2,
-                title:'美的冰箱',
-                single:0,
-                goodsUrl:'../goods/details/details',
-                img:'../../image/orders/order-1.png',
-                info:'美的抽油烟机 美观不生锈 吸油高效 精华厨房 完美无缺',
-                kinds:'灰色',
-                charge:2.00,
-                num:1,
-                postage:0.00
-            }]
-        }, {
-            shopName: '国美旗舰店',
-            single:0,
-            goodsInfo: [{
-                id: 33,
-                title: '国美抽油烟机',
-                single:0,
-                goodsUrl: '../goods/details/details',
-                img: '../../image/orders/order-1.png',
-                info: '美的抽油烟机 美观不生锈 吸油高效 精华厨房 完美无缺',
-                kinds: '灰色',
-                charge: 3.00,
-                num: 1,
-                postage: 0.00
-            }]
-        }]
-    },
-    //点击商店ok键
-    shopClick: function (e) {
-        /*
-        * 进来先判断商店里的商品是否已被全选
-        * --是：遍历商品 将该商店里所有商品的总价从合计里减去
-        * --否：不是全选，他会将没有选上的选上
-        *       遍历商品 判断商品是否已被选
-        *       --否 则加上该商品的价钱到总价
-        * */
-        var _this = this;
-        var myShopCar = _this.data.myShopCar      //这个商店
-        var snum = e.currentTarget.dataset.snum;  //商店索引
-        var allCharge = _this.data.allCharge      //合计
-        var gLength = myShopCar[snum].goodsInfo.length //商品数组长度
-        /*判断商店全选否*/
-        if (myShopCar[snum].single){
-            /*如果已经被全选-->取消全选*/
-            for (var i=0; i<gLength; i++){
-                var gCharge = myShopCar[snum].goodsInfo[i].charge
-                var gnum = myShopCar[snum].goodsInfo[i].num
-                var postage = myShopCar[snum].goodsInfo[i].postage
-                allCharge = allCharge - gCharge*gnum - postage
-                myShopCar[snum].goodsInfo[i].single = 0;
-            }
-        }else {
-            /*如果未被全选-->全选*/
-            for (var i=0; i<gLength; i++){
-                var single = myShopCar[snum].goodsInfo[i].single
-                var gCharge = myShopCar[snum].goodsInfo[i].charge
-                var gnum = myShopCar[snum].goodsInfo[i].num
-                var postage = myShopCar[snum].goodsInfo[i].postage
-                if (!single){
-                    allCharge = allCharge + gCharge*gnum + postage
-                }
-                myShopCar[snum].goodsInfo[i].single = 1;
-            }
-        }
-        myShopCar[snum].single = !myShopCar[snum].single
-        _this.setData({
-            myShopCar:myShopCar
-        })
-        _this.setData({
-            allCharge:allCharge
-        })
+        myShopCar:[]
     },
     //点击商品ok键
     goodsClick: function (e) {
         var _this = this;
-        var allCharge = _this.data.allCharge;
-        var snum = e.currentTarget.dataset.snum;
-        var gnum = e.currentTarget.dataset.gnum;
-        var gLength = _this.data.myShopCar[snum].goodsInfo.length;
-        //为了方便取数据
-        var thisGoods = _this.data.myShopCar[snum].goodsInfo[gnum];
-        if(_this.data.myShopCar[snum].goodsInfo[gnum].single){
-            allCharge = allCharge - thisGoods.charge - thisGoods.postage
+        var allCharge = _this.data.allCharge;   //合计
+        var gnum = e.currentTarget.dataset.gnum;//第gnum个商品
+        var myShopCar = _this.data.myShopCar[gnum] //点击的商品对象
+        var thisGoods = myShopCar.goodsInfo   //点击的商品详细信息对象
+        //如果点击之前 该商品已被选择
+        if(myShopCar.single){
+            allCharge = allCharge - thisGoods.pdtMyPrice*myShopCar.goodsNum
         }else {
-            allCharge = allCharge + thisGoods.charge + thisGoods.postage
+            allCharge = allCharge + thisGoods.pdtMyPrice*myShopCar.goodsNum
         }
-        _this.data.myShopCar[snum].goodsInfo[gnum].single = !_this.data.myShopCar[snum].goodsInfo[gnum].single;
+        _this.data.myShopCar[gnum].single = !_this.data.myShopCar[gnum].single;
         _this.setData({
-            myShopCar:_this.data.myShopCar
-        })
-        var sLength = 0
-        //遍历购物车中同一商城的商品
-        for(var i=0; i<gLength; i++){
-            var goods = _this.data.myShopCar[snum].goodsInfo[i]
-            if (goods.single){
-                sLength++
-            }else {
-            }
-        }
-        if (sLength == gLength){
-            _this.data.myShopCar[snum].single = 1
-        }else {
-            _this.data.myShopCar[snum].single =0
-        }
-        _this.setData({
-            myShopCar:_this.data.myShopCar
-        })
-        _this.setData({
+            myShopCar:_this.data.myShopCar,
             allCharge:allCharge
+        })
+    },
+    //删除
+    deleteGoods:function (e) {
+        var pid = e.currentTarget.dataset.pid
+        var gnum = e.currentTarget.dataset.gnum
+        var _this = this
+        var myShopCar = _this.data.myShopCar
+        requestPost({
+            url:url.deleteGWproduct,
+            data:{
+                id:pid
+            },
+            success:function (res) {
+                console.log(res)
+                if (res.statusCode == 201){
+                    wx.showToast({
+                        title: '删除成功',
+                        icon: 'success',
+                        duration: 1000
+                    })
+                    myShopCar[gnum].show = 0;
+                    _this.setData({
+                        myShopCar:myShopCar
+                    })
+                }
+            }
         })
     },
     //结算
@@ -140,7 +64,6 @@ Page({
         wx.navigateTo({
           url: './orderpay/orderpay'
         })
-
     },
     /**
      * 生命周期函数--监听页面加载
@@ -167,7 +90,39 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        console.log('页面显示')
+        console.log('12')
+        var _this = this
+        _this.setData({
+            allCharge:0
+        })
+        //获取购车信息
+        requestGet({
+            url:url.getTrolleyByuserid,
+            data:{},
+            success:function (res) {
+                var myShopCar = []
+                var resData = res.data
+                for(let i=0; i<resData.length; i++){
+                    myShopCar.push({})
+                    myShopCar[i].goodsNum = resData[i].pdtNum
+                    myShopCar[i].single = 0
+                    myShopCar[i].show = 1
+                    myShopCar[i].id = resData[i].id
+                    requestGet({
+                        url:url.getProductByid,
+                        data:{
+                            id:resData[i].productId
+                        },
+                        success:function (res) {
+                            myShopCar[i].goodsInfo = res.data
+                            _this.setData({
+                                myShopCar:myShopCar
+                            })
+                        },
+                    })
+                }
+            }
+        })
     },
 
     /**
